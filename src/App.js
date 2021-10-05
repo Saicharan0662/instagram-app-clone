@@ -1,9 +1,12 @@
 import './App.css';
+import Home from './pages/Home';
+import Tabs from './components/tabs/Tabs'
 
 function App() {
   return (
-    <div className="App">
-      <h1>Hello world</h1>
+    <div className="md:hidden">
+      <Home />
+      <Tabs />
     </div>
   );
 }
