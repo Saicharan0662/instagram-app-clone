@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { Avatar } from '@mui/material'
 import home from '../../assets/icons/Home.svg'
 import search from '../../assets/icons/Search.svg'
@@ -7,11 +8,15 @@ import heart from '../../assets/icons/heart.svg'
 
 const Tabs = () => {
     return (
-        <div className='bg-white flex justify-around items-center fixed bottom-0 w-full'
-            style={{ height: '42px' }}
+        <div className='bg-white flex justify-around items-center sticky bottom-0 w-full'
+            style={{ height: '42px', zIndex: '10' }}
         >
-            <img src={home} alt="" className='h-6' />
-            <img src={search} alt="" className='h-6' />
+            <Link to='/'>
+                <img src={home} alt="" className='h-6' />
+            </Link>
+            <Link to='/explore'>
+                <img src={search} alt="" className='h-6' />
+            </Link>
             <img src={reels} alt="" className='h-6' />
             <img src={heart} alt="" className='h-6' />
             <Avatar
