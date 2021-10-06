@@ -97,7 +97,7 @@ const Home = () => {
                 })}
             </div>
             <hr className='my-2' />
-            {posts.map(p => {
+            {posts.map((p, i) => {
                 return (
                     <Post
                         avatar={p.avatar}
@@ -106,6 +106,7 @@ const Home = () => {
                         likes={p.likes}
                         caption={p.caption}
                         className={p.className}
+                        key={i}
                     />
                 )
             })}
