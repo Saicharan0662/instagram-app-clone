@@ -3,7 +3,7 @@ import axios from 'axios'
 import Skeleton from 'react-loading-skeleton';
 import Search from '../components/search/Search'
 
-const APIKEY = '23708156-40df5c1321eacc5d9ff063211'
+const APIKEY = ''
 
 const Explore = () => {
 
