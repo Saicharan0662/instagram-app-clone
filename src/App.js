@@ -7,7 +7,6 @@ import Activity from './pages/Activity';
 import Profile from './pages/Profile';
 
 function App() {
-  console.log(process.env)
   return (
     <div className="md:hidden">
       <Switch>
