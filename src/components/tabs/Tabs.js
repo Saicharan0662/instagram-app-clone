@@ -21,11 +21,13 @@ const Tabs = () => {
             <Link to='/activity'>
                 <img src={heart} alt="" className='h-6' />
             </Link>
-            <Avatar
-                alt='Profile'
-                src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTL880uAgBZkG1hUKl8vQN0DfNIv0YRj96cxp22gDG0gGNplEGtb_lOQpCzRqHHJzVt43g&usqp=CAU'
-                style={{ width: '22px', height: '22px' }}
-            />
+            <Link to='/profile'>
+                <Avatar
+                    alt='Profile'
+                    src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTL880uAgBZkG1hUKl8vQN0DfNIv0YRj96cxp22gDG0gGNplEGtb_lOQpCzRqHHJzVt43g&usqp=CAU'
+                    style={{ width: '22px', height: '22px' }}
+                />
+            </Link>
         </div>
     )
 }

@@ -3,8 +3,6 @@ import axios from 'axios'
 import Skeleton from 'react-loading-skeleton';
 import Search from '../components/search/Search'
 
-const APIKEY = '23708156-40df5c1321eacc5d9ff063211'
-
 const Explore = () => {
 
     const [images, setImages] = useState()
@@ -12,7 +10,7 @@ const Explore = () => {
     const loadingArray = new Array(18).fill(1)
 
     useEffect(() => {
-        axios.get(`https://pixabay.com/api/?key=${APIKEY}`)
+        axios.get(`https://pixabay.com/api/?key=${process.env.REACT_APP_API_KEY}`)
             .then((res) => {
                 setImages(res?.data?.hits)
                 setLoading(false)
