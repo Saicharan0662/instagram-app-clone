@@ -29,7 +29,7 @@ const posts = [
         post: 'https://media.istockphoto.com/photos/mature-mixed-race-business-man-picture-id1059661424?k=20&m=1059661424&s=612x612&w=0&h=CLL4tto10GPo1gtMR9c-kPmf8VkvodjvTyqvtEuTLtg=',
         likes: 102,
         caption: 'Start every day as the last day.',
-        className: 'mb-2 pb-4'
+        className: 'mb-2 pb-10'
     },
 ]
 

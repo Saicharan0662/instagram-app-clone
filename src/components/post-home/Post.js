@@ -28,7 +28,7 @@ const Post = (
                 </div>
                 <img src={menu} alt="" className='h-4' style={{ position: 'relative', top: '4.5px' }} />
             </div>
-            <div className='w-full mt-1'>
+            <div className='w-full mt-1 flex justify-center items-center'>
                 <img src={post} alt="" />
             </div>
             <div className="flex justify-between mt-1 mx-2">
