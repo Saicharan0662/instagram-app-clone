@@ -25,4 +25,4 @@ git push origin <your branch>
 
 ## TODO
 
-Storing data of prfile in localstorage
+Storing data of profile in localstorage
