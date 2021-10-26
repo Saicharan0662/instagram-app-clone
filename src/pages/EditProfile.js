@@ -17,17 +17,21 @@ const EditProfile = () => {
     const history = useHistory()
 
     const handelSubmit = () => {
-        const data = { name, username, bio }
-        localStorage.setItem('profiledetails', JSON.stringify(data))
-        handelChange(data)
-        history.push('/profile')
+        if (name && username) {
+            const data = { name, username, bio }
+            localStorage.setItem('profiledetails', JSON.stringify(data))
+            handelChange(data)
+            history.push('/profile')
+        }
     }
 
     return (
         <div>
             <div className="text-lg font-semibold flex justify-between">
                 <div className="flex w-1/2">
-                    <img src={close} alt="" className='h-4 relative top-2 mr-4 left-1' />
+                    <img src={close} alt="" className='h-4 relative top-2 mr-4 left-1'
+                        onClick={() => history.push('/profile')}
+                    />
                     <p>Edit Profile</p>
                 </div>
                 <img src={check} alt="" className='h-4 mr-2 relative top-2'
@@ -53,6 +57,8 @@ const EditProfile = () => {
                     size="small"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
+                    error={name ? false : true}
+                    helperText="Name is required"
                 />
                 <TextField
                     id="standard-basic"
@@ -62,6 +68,8 @@ const EditProfile = () => {
                     size="small"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
+                    error={username ? false : true}
+                    helperText="Username is required"
                 />
                 <TextField
                     id="standard-basic"

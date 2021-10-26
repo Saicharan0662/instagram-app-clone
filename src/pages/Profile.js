@@ -14,7 +14,7 @@ import { GlobalContext } from '../context/GlobalState'
 const profileData = [
     {
         name: 'Post',
-        number: '12'
+        number: '20'
     },
     {
         name: 'Followers',
