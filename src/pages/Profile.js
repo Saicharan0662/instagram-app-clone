@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { useHistory } from 'react-router'
 import { Avatar } from '@mui/material'
 import axios from 'axios'
@@ -9,6 +9,7 @@ import dropdown from '../assets/icons/dropdown.svg'
 import grid from '../assets/icons/Grid.svg'
 import mentions from '../assets/icons/mentions.svg'
 import mentionsGray from '../assets/icons/mentionsGray.svg'
+import { GlobalContext } from '../context/GlobalState'
 
 const profileData = [
     {
@@ -27,6 +28,8 @@ const profileData = [
 
 const Profile = () => {
 
+    const { profileDetails } = useContext(GlobalContext)
+
     const [postview, setPostview] = useState(true)
     const [images, setImages] = useState()
     const history = useHistory()
@@ -43,7 +46,7 @@ const Profile = () => {
         <div>
             <div className="flex justify-between mx-4 items-center mt-2">
                 <div className='flex'>
-                    <h3 className="font-bold">john_w7</h3>
+                    <h3 className="font-bold">{profileDetails?.username}</h3>
                     <img src={dropdown} alt="" className='ml-2' />
                 </div>
                 <div className=' flex'>
@@ -69,8 +72,8 @@ const Profile = () => {
                 </div>
             </div>
             <div className="mt-2 mx-4">
-                <p className="font-bold" style={{ fontSize: '13px' }}>John wim</p>
-                <p className='font-normal' style={{ fontSize: '13px' }}>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur doloremque officiis labore.</p>
+                <p className="font-bold" style={{ fontSize: '13px' }}>{profileDetails?.name}</p>
+                <p className='font-normal' style={{ fontSize: '13px' }}>{profileDetails?.bio}</p>
                 <Button
                     text="Edit Profile"
                     onClick={() => history.push('/editprofile')}

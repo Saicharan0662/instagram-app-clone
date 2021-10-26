@@ -1,17 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { useHistory } from 'react-router';
 import { Avatar } from '@mui/material';
 import TextField from '@mui/material/TextField';
 import close from '../assets/icons/close.png'
 import check from '../assets/icons/check.png'
+import { GlobalContext } from '../context/GlobalState';
 
 const EditProfile = () => {
 
-    const [name, setName] = useState()
-    const [username, setUsername] = useState()
-    const [bio, setBio] = useState()
+    const { profileDetails, handelChange } = useContext(GlobalContext)
+
+    const [name, setName] = useState(profileDetails?.name)
+    const [username, setUsername] = useState(profileDetails?.username)
+    const [bio, setBio] = useState(profileDetails?.bio)
+
+    const history = useHistory()
 
     const handelSubmit = () => {
-        console.log(name, username, bio)
+        const data = { name, username, bio }
+        handelChange(data)
+        history.push('/profile')
     }
 
     return (

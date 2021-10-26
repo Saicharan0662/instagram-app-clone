@@ -22,3 +22,7 @@ git add .
 git commit -m <commit message>
 git push origin <your branch>
 ```
+
+## TODO
+
+Storing data of prfile in localstorage

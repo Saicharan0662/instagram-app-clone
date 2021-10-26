@@ -6,10 +6,11 @@ import Tabs from './components/tabs/Tabs'
 import Activity from './pages/Activity';
 import Profile from './pages/Profile';
 import EditProfile from './pages/EditProfile';
+import { GlobalProvider } from './context/GlobalState'
 
 function App() {
   return (
-    <>
+    <GlobalProvider>
       <div className="md:hidden">
         <Switch>
           <Route path='/' exact component={Home} />
@@ -24,7 +25,7 @@ function App() {
         Sorry we are only on small screans <br />
         width should be less than 768px
       </div>
-    </>
+    </GlobalProvider>
   );
 }
 
