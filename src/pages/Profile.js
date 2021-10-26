@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { useHistory } from 'react-router'
 import { Avatar } from '@mui/material'
 import axios from 'axios'
 import Button from '../components/profile-button/Button'
@@ -28,6 +29,7 @@ const Profile = () => {
 
     const [postview, setPostview] = useState(true)
     const [images, setImages] = useState()
+    const history = useHistory()
 
     useEffect(() => {
         axios.get(`https://pixabay.com/api/?key=${process.env.REACT_APP_API_KEY}`)
@@ -71,6 +73,7 @@ const Profile = () => {
                 <p className='font-normal' style={{ fontSize: '13px' }}>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur doloremque officiis labore.</p>
                 <Button
                     text="Edit Profile"
+                    onClick={() => history.push('/editprofile')}
                 />
             </div>
             <div className="flex mt-2">

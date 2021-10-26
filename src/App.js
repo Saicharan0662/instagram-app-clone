@@ -5,6 +5,7 @@ import Explore from './pages/Explore';
 import Tabs from './components/tabs/Tabs'
 import Activity from './pages/Activity';
 import Profile from './pages/Profile';
+import EditProfile from './pages/EditProfile';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path='/explore' component={Explore} />
           <Route path='/activity' component={Activity} />
           <Route path='/profile' component={Profile} />
+          <Route path='/editprofile' component={EditProfile} />
         </Switch>
         <Tabs />
       </div>
