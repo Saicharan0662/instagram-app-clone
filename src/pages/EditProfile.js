@@ -18,6 +18,7 @@ const EditProfile = () => {
 
     const handelSubmit = () => {
         const data = { name, username, bio }
+        localStorage.setItem('profiledetails', JSON.stringify(data))
         handelChange(data)
         history.push('/profile')
     }

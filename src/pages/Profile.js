@@ -56,7 +56,7 @@ const Profile = () => {
             </div>
             <div className="flex justify-center mx-4 items-center mt-4">
                 <Avatar
-                    alt="Travis Howard"
+                    alt={profileDetails.name}
                     style={{ width: '70px', height: '70px' }}
                     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTL880uAgBZkG1hUKl8vQN0DfNIv0YRj96cxp22gDG0gGNplEGtb_lOQpCzRqHHJzVt43g&usqp=CAU"
                 />

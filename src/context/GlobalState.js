@@ -2,11 +2,11 @@ import React, { createContext, useReducer } from 'react';
 import AppReducer from './AppReducer'
 
 const initialState = {
-    profileDetails: {
+    profileDetails: (JSON.parse(localStorage.getItem('profiledetails')) || {
         name: 'name',
         username: 'name_01',
-        bio: 'this is my bio',
-    }
+        bio: 'this is bio',
+    })
 }
 
 export const GlobalContext = createContext(initialState)
