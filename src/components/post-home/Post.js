@@ -23,7 +23,7 @@ const Post = (
                         alt={username}
                         src={avatar}
                         style={{ width: '28px', height: '28px' }}
-                    />
+                    >{username[0]}</Avatar>
                     <p className='font-bold ml-2'>{username}</p>
                 </div>
                 <img src={menu} alt="" className='h-4' style={{ position: 'relative', top: '4.5px' }} />
@@ -59,7 +59,7 @@ const Post = (
             <div className='mx-2' style={{ fontSize: "13px" }}>
                 <p className='font-bold'>{likecount} Likes</p>
                 <p>
-                    <span className='font-bold mr-1'>{username}</span>
+                    <span className='font-bold mr-1'>{caption ? username : null}</span>
                     <span>{caption}</span>
                 </p>
             </div>

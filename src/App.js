@@ -6,6 +6,7 @@ import Tabs from './components/tabs/Tabs'
 import Activity from './pages/Activity';
 import Profile from './pages/Profile';
 import EditProfile from './pages/EditProfile';
+import ExplorePost from './components/explore-post/ExplorePost';
 import { GlobalProvider } from './context/GlobalState'
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
           <Route path='/activity' component={Activity} />
           <Route path='/profile' component={Profile} />
           <Route path='/editprofile' component={EditProfile} />
+          <Route path='/explorepost' component={ExplorePost} />
         </Switch>
         <Tabs />
       </div>

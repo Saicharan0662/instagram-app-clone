@@ -1,9 +1,14 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import axios from 'axios'
 import Skeleton from 'react-loading-skeleton';
 import Search from '../components/search/Search'
+import { GlobalContext } from '../context/GlobalState';
+import { useHistory } from 'react-router';
 
 const Explore = () => {
+
+    const { explorePostSetter } = useContext(GlobalContext)
+    const history = useHistory()
 
     const [images, setImages] = useState()
     const [loading, setLoading] = useState(true)
@@ -18,6 +23,16 @@ const Explore = () => {
             .catch(() => { })
     }, [])
 
+    const handelExplorePost = (post) => {
+        const data = {
+            user: post?.user,
+            url: post?.webformatURL || post?.userImageURL,
+            likes: post?.likes
+        }
+        explorePostSetter(data)
+        history.push('/explorepost')
+    }
+
     return (
         <div className=''>
             <Search />
@@ -31,12 +46,14 @@ const Explore = () => {
                                     alt=""
                                     className='pr-1'
                                     style={{ width: '33%', height: '33%' }}
+                                    onClick={() => handelExplorePost(img)}
                                 />
                                 <img key={index * 0.1 + 0.1}
                                     src={img.userImageURL}
                                     alt=""
                                     className='pr-1'
                                     style={{ width: '33%', height: '33%' }}
+                                    onClick={() => handelExplorePost(img)}
                                 />
                             </>
                         )
