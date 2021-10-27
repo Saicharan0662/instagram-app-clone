@@ -23,11 +23,21 @@ const Explore = () => {
             .catch(() => { })
     }, [])
 
-    const handelExplorePost = (post) => {
-        const data = {
-            user: post?.user,
-            url: post?.webformatURL || post?.userImageURL,
-            likes: post?.likes
+    const handelExplorePost = (post, toggler) => {
+        let data = {}
+        if (toggler === 1) {
+            data = {
+                user: post?.user,
+                url: post?.webformatURL,
+                likes: post?.likes
+            }
+        }
+        else {
+            data = {
+                user: post?.user,
+                url: post?.userImageURL,
+                likes: post?.likes
+            }
         }
         explorePostSetter(data)
         history.push('/explorepost')
@@ -46,14 +56,14 @@ const Explore = () => {
                                     alt=""
                                     className='pr-1'
                                     style={{ width: '33%', height: '33%' }}
-                                    onClick={() => handelExplorePost(img)}
+                                    onClick={() => handelExplorePost(img, 1)}
                                 />
                                 <img key={index * 0.1 + 0.1}
                                     src={img.userImageURL}
                                     alt=""
                                     className='pr-1'
                                     style={{ width: '33%', height: '33%' }}
-                                    onClick={() => handelExplorePost(img)}
+                                    onClick={() => handelExplorePost(img, 0)}
                                 />
                             </>
                         )
