@@ -6,9 +6,9 @@ const dummyData = {
     username: 'name_01',
     bio: 'this is bio',
 }
-
+const orgData = JSON.parse(localStorage.getItem('profiledetails'))
 const initialState = {
-    profileDetails: (JSON.parse(localStorage.getItem('profiledetails')) || dummyData),
+    profileDetails: (orgData ? orgData : dummyData),
     explorePost: {
         user: "",
         url: "",
