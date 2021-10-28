@@ -11,7 +11,7 @@ const ExplorePost = () => {
 
     return (
         <div>
-            <div className="flex">
+            <div className="flex mt-1 ml-1">
                 <img src={leftArrow} alt="" className='h-5 mt-1 mr-2 ml-1'
                     onClick={() => history.push('/explore')}
                 />
@@ -24,7 +24,6 @@ const ExplorePost = () => {
                     post={explorePost.url}
                     likes={explorePost.likes}
                     caption={''}
-                // className={p.className}
                 />
             </div>
         </div>

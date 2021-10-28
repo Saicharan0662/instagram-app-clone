@@ -58,7 +58,7 @@ const Explore = () => {
                                     style={{ width: '33%', height: '33%' }}
                                     onClick={() => handelExplorePost(img, 1)}
                                 />
-                                <img key={index * 0.1 + 0.1}
+                                <img key={index * 100 + 1}
                                     src={img.userImageURL}
                                     alt=""
                                     className='pr-1'

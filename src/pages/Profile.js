@@ -10,21 +10,8 @@ import grid from '../assets/icons/Grid.svg'
 import mentions from '../assets/icons/mentions.svg'
 import mentionsGray from '../assets/icons/mentionsGray.svg'
 import { GlobalContext } from '../context/GlobalState'
+import profileData from '../data/ProfileData'
 
-const profileData = [
-    {
-        name: 'Post',
-        number: '20'
-    },
-    {
-        name: 'Followers',
-        number: '759'
-    },
-    {
-        name: 'Following',
-        number: '99'
-    },
-]
 
 const Profile = () => {
 
