@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Avatar } from '@mui/material'
+import { GlobalContext } from '../../context/GlobalState'
 import menu from '../../assets/icons/menu.png'
 import heart from '../../assets/icons/heart.svg'
 import heartLiked from '../../assets/icons/heart.png'
@@ -9,11 +10,34 @@ import bookmarkDefault from '../../assets/icons/bookmark.svg'
 import bookmarked from '../../assets/icons/bookmark.png'
 
 const Post = (
-    { avatar = "Name", username = "username", post = '', likes = 100, caption = "This is a caption.", ...otherprops }) => {
+    { id = '', avatar = "Name", username = "username", post = '', likes = 100, caption = "This is a caption.", ...otherprops }) => {
 
     const [liked, setLiked] = useState(false)
     const [bookmark, setBookmark] = useState(false)
     const [likecount, setLikecount] = useState(likes)
+
+    const { savePost, removePost, savedPost } = useContext(GlobalContext)
+
+    const handelBookmarkNo = () => {
+        setBookmark(false);
+        if (id)
+            removePost(id)
+
+        console.log(savedPost)
+    }
+
+    const handelBookmarkYes = () => {
+        setBookmark(true)
+        const data = {
+            id: post,
+            avatar,
+            username,
+            post,
+            likes,
+            caption,
+        }
+        savePost(data)
+    }
 
     return (
         <div {...otherprops}>
@@ -51,8 +75,8 @@ const Post = (
                 </div>
                 <div>
                     {bookmark ?
-                        <img src={bookmarked} alt="" className='h-6' style={{ width: "24px", height: "22px" }} onClick={() => setBookmark(!bookmark)} /> :
-                        <img src={bookmarkDefault} alt="" style={{ height: "22px" }} onClick={() => setBookmark(!bookmark)} />
+                        <img src={bookmarked} alt="" className='h-6' style={{ width: "24px", height: "22px" }} onClick={() => handelBookmarkNo()} /> :
+                        <img src={bookmarkDefault} alt="" style={{ height: "22px" }} onClick={() => handelBookmarkYes()} />
                     }
                 </div>
             </div>

@@ -1,4 +1,5 @@
 const AppReducer = (state, action) => {
+    console.log(action.payload)
     switch (action.type) {
         case 'EDIT':
             return {
@@ -15,6 +16,16 @@ const AppReducer = (state, action) => {
                     url: action.payload.url,
                     likes: action.payload.likes
                 }
+            }
+        case 'SAVE_POST':
+            return {
+                ...state,
+                savedPost: [action.payload, ...state.savedPost]
+            }
+        case 'REMOVE_POST':
+            return {
+                ...state,
+                savedPost: state.savedPost.filter(post => post.id !== action.payload)
             }
         default:
             return state

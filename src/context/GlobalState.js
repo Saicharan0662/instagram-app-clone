@@ -13,7 +13,8 @@ const initialState = {
         user: "",
         url: "",
         likes: 0
-    }
+    },
+    savedPost: [{}]
 }
 
 export const GlobalContext = createContext(initialState)
@@ -31,13 +32,24 @@ export const GlobalProvider = ({ children }) => {
         dispatch({ type: 'POST_SETTER', payload: data })
     }
 
+    const savePost = (data) => {
+        dispatch({ type: 'SAVE_POST', payload: data })
+    }
+
+    const removePost = (id) => {
+        dispatch({ type: 'REMOVE_POST', payload: id })
+    }
+
     return (
         <GlobalContext.Provider
             value={{
                 profileDetails: state.profileDetails,
                 explorePost: state.explorePost,
+                savedPost: state.savedPost,
                 handelChange,
-                explorePostSetter
+                explorePostSetter,
+                savePost,
+                removePost
             }}>
             {children}
         </GlobalContext.Provider>

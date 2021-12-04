@@ -11,7 +11,7 @@ import mentions from '../assets/icons/mentions.svg'
 import mentionsGray from '../assets/icons/mentionsGray.svg'
 import { GlobalContext } from '../context/GlobalState'
 import profileData from '../data/ProfileData'
-
+import Menu from '../components/menu-tab/Menu'
 
 const Profile = () => {
 
@@ -19,6 +19,7 @@ const Profile = () => {
 
     const [postview, setPostview] = useState(true)
     const [images, setImages] = useState()
+    const [menu, setMenu] = useState(false)
     const history = useHistory()
 
     useEffect(() => {
@@ -31,6 +32,17 @@ const Profile = () => {
 
     return (
         <div>
+            {menu &&
+                <Menu
+                    options={[
+                        {
+                            name: "Saved",
+                            path: "/saved",
+                        }
+                    ]}
+                    setMenu={setMenu}
+                />
+            }
             <div className="flex justify-between mx-4 items-center mt-2">
                 <div className='flex'>
                     <h3 className="font-bold">{profileDetails?.username}</h3>
@@ -38,7 +50,7 @@ const Profile = () => {
                 </div>
                 <div className=' flex'>
                     <img src={add} alt="add" className='mr-4' />
-                    <img src={hamburger} alt="msg" />
+                    <img src={hamburger} alt="msg" onClick={() => setMenu(!menu)} />
                 </div>
             </div>
             <div className="flex justify-center mx-4 items-center mt-4">

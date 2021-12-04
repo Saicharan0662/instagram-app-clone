@@ -8,6 +8,7 @@ import Profile from './pages/Profile';
 import EditProfile from './pages/EditProfile';
 import ExplorePost from './components/explore-post/ExplorePost';
 import { GlobalProvider } from './context/GlobalState'
+import Saved from './pages/Saved';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path='/profile' component={Profile} />
           <Route path='/editprofile' component={EditProfile} />
           <Route path='/explorepost' component={ExplorePost} />
+          <Route path='/saved' component={Saved} />
         </Switch>
         <Tabs />
       </div>
