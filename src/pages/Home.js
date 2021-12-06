@@ -1,11 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Avatar, Badge } from '@mui/material'
 import { styled } from '@mui/material/styles';
 import igLogo from '../assets/icons/igLogo.svg'
 import add from '../assets/icons/add.svg'
 import messenger from '../assets/icons/messenger.svg'
 import Post from '../components/post-home/Post';
-import posts from '../data/HomePost'
+// import posts from '../data/HomePost'
+import { GlobalContext } from '../context/GlobalState';
 
 
 const SmallAvatar = styled(Avatar)(({ theme }) => ({
@@ -30,6 +31,9 @@ const users = [
 ]
 
 const Home = () => {
+
+    const { posts } = useContext(GlobalContext);
+
     return (
         <div>
             <div className="flex justify-between mt-2">
@@ -72,15 +76,18 @@ const Home = () => {
                 })}
             </div>
             <hr className='my-2' />
-            {posts.map((p, i) => {
+            {posts?.map((p, i) => {
                 return (
                     <Post
+                        id={p.id}
                         avatar={p.avatar}
                         username={p.username}
                         post={p.post}
                         likes={p.likes}
                         caption={p.caption}
                         className={p.className}
+                        bookmark={p.bookmark}
+                        liked={p.liked}
                         key={i}
                     />
                 )
