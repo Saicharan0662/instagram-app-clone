@@ -5,8 +5,20 @@ import { GlobalContext } from '../context/GlobalState'
 
 const Saved = () => {
     const history = useHistory();
-    const { savedPost } = useContext(GlobalContext)
-    console.log(savedPost)
+    const { posts, explorePostSetter } = useContext(GlobalContext)
+
+    const handelExplorePost = (post) => {
+        let data = {}
+        data = {
+            user: post?.username,
+            url: post?.post,
+            likes: post?.likes,
+            liked: post.liked,
+            bookmark: post.bookmark
+        }
+        explorePostSetter(data)
+        history.push('/explorepost')
+    }
 
     return (
         <div>
@@ -17,14 +29,15 @@ const Saved = () => {
                 <span className='text-lg font-semibold'>Saved</span>
             </div>
             <div className='flex flex-wrap'>
-                {savedPost?.map(post => {
+                {posts?.map(post => {
                     return (
+                        post.bookmark &&
                         <img key={post?.id}
                             src={post.post}
                             alt=""
                             className='pr-1'
-                            style={{ width: '33%', height: '33%' }}
-                        // onClick={() => handelExplorePost(img, 1)}
+                            style={{ width: '33%', height: '40%' }}
+                            onClick={() => handelExplorePost(post)}
                         />
                     )
                 })}

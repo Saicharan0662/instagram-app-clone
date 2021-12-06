@@ -23,6 +23,8 @@ const ExplorePost = () => {
                     username={explorePost.user}
                     post={explorePost.url}
                     likes={explorePost.likes}
+                    liked={explorePost.liked}
+                    bookmark={explorePost.bookmark}
                     caption={''}
                 />
             </div>

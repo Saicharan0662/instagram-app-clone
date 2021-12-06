@@ -14,18 +14,52 @@ const AppReducer = (state, action) => {
                 explorePost: {
                     user: action.payload.user,
                     url: action.payload.url,
-                    likes: action.payload.likes
+                    likes: action.payload.likes,
+                    liked: action.payload.liked,
+                    bookmark: action.payload.bookmark,
                 }
+            }
+        case 'LIKE':
+            return {
+                ...state,
+                posts: state.posts.filter(post => {
+                    if (post.id === action.payload) {
+                        post.likes += 1;
+                        post.liked = true
+                    }
+                    return [...state.posts, post]
+                })
+            }
+        case 'UNLIKE':
+            return {
+                ...state,
+                posts: state.posts.filter(post => {
+                    if (post.id === action.payload) {
+                        post.likes -= 1;
+                        post.liked = false
+                    }
+                    return [...state.posts, post]
+                })
             }
         case 'SAVE_POST':
             return {
                 ...state,
-                savedPost: [action.payload, ...state.savedPost]
+                posts: state.posts.filter(post => {
+                    if (post.id === action.payload) {
+                        post.bookmark = true
+                    }
+                    return [...state.posts, post]
+                })
             }
         case 'REMOVE_POST':
             return {
                 ...state,
-                savedPost: state.savedPost.filter(post => post.id !== action.payload)
+                posts: state.posts.filter(post => {
+                    if (post.id === action.payload) {
+                        post.bookmark = false
+                    }
+                    return [...state.posts, post]
+                })
             }
         default:
             return state

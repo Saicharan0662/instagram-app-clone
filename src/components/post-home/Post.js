@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import { Avatar } from '@mui/material'
 import { GlobalContext } from '../../context/GlobalState'
 import menu from '../../assets/icons/menu.png'
@@ -10,33 +10,24 @@ import bookmarkDefault from '../../assets/icons/bookmark.svg'
 import bookmarked from '../../assets/icons/bookmark.png'
 
 const Post = (
-    { id = '', avatar = "Name", username = "username", post = '', likes = 100, caption = "This is a caption.", ...otherprops }) => {
+    { id = 0, avatar = "Name", username = "username", bookmark = false, liked = false, post = '', likes = 100, caption = "This is a caption.", ...otherprops }) => {
 
-    const [liked, setLiked] = useState(false)
-    const [bookmark, setBookmark] = useState(false)
-    const [likecount, setLikecount] = useState(likes)
+    const { likeHandler, unlikeHandler, savePost, removePost } = useContext(GlobalContext)
 
-    const { savePost, removePost, savedPost } = useContext(GlobalContext)
+    const likePost = () => {
+        likeHandler(id)
+    }
+
+    const unlikePost = () => {
+        unlikeHandler(id)
+    }
 
     const handelBookmarkNo = () => {
-        setBookmark(false);
-        if (id)
-            removePost(id)
-
-        console.log(savedPost)
+        removePost(id)
     }
 
     const handelBookmarkYes = () => {
-        setBookmark(true)
-        const data = {
-            id: post,
-            avatar,
-            username,
-            post,
-            likes,
-            caption,
-        }
-        savePost(data)
+        savePost(id)
     }
 
     return (
@@ -60,14 +51,12 @@ const Post = (
                     {liked ?
                         <img src={heartLiked} alt="" className='mr-2 h-6'
                             onClick={() => {
-                                setLiked(!liked)
-                                setLikecount(likecount - 1)
+                                unlikePost()
                             }} />
                         :
                         <img src={heart} alt="" className='mr-2'
                             onClick={() => {
-                                setLiked(!liked)
-                                setLikecount(likecount + 1)
+                                likePost()
                             }} />
                     }
                     <img src={comment} alt="" className='mr-2' />
@@ -81,7 +70,7 @@ const Post = (
                 </div>
             </div>
             <div className='mx-2' style={{ fontSize: "13px" }}>
-                <p className='font-bold'>{likecount} Likes</p>
+                <p className='font-bold'>{likes} Likes</p>
                 <p>
                     <span className='font-bold mr-1'>{caption ? username : null}</span>
                     <span>{caption}</span>
