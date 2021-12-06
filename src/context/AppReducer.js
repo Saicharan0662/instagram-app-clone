@@ -3,6 +3,7 @@ const AppReducer = (state, action) => {
     switch (action.type) {
         case 'EDIT':
             return {
+                ...state,
                 profileDetails: {
                     name: action.payload.name,
                     username: action.payload.username,
@@ -11,12 +12,13 @@ const AppReducer = (state, action) => {
             }
         case 'POST_SETTER':
             return {
+                ...state,
                 explorePost: {
                     user: action.payload.user,
                     url: action.payload.url,
                     likes: action.payload.likes,
                     liked: action.payload.liked,
-                    bookmark: action.payload.bookmark,
+                    bookmark: action.payload.bookmark
                 }
             }
         case 'LIKE':

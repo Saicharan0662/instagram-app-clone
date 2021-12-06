@@ -26,6 +26,7 @@ const ExplorePost = () => {
                     liked={explorePost.liked}
                     bookmark={explorePost.bookmark}
                     caption={''}
+                    feat={false}
                 />
             </div>
         </div>
