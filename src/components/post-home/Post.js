@@ -10,7 +10,7 @@ import bookmarkDefault from '../../assets/icons/bookmark.svg'
 import bookmarked from '../../assets/icons/bookmark.png'
 
 const Post = (
-    { id = 0, avatar = "Name", username = "username", bookmark = false, liked = false, post = '', likes = 100, caption = "This is a caption.", ...otherprops }) => {
+    { id = 0, avatar = "Name", username = "username", bookmark = false, liked = false, post = '', likes = 100, caption = "This is a caption.", feat = true, ...otherprops }) => {
 
     const { likeHandler, unlikeHandler, savePost, removePost } = useContext(GlobalContext)
 
@@ -47,27 +47,44 @@ const Post = (
                 <img src={post} alt="" />
             </div>
             <div className="flex justify-between mt-1 mx-2">
-                <div className="flex">
-                    {liked ?
-                        <img src={heartLiked} alt="" className='mr-2 h-6'
-                            onClick={() => {
-                                unlikePost()
-                            }} />
-                        :
-                        <img src={heart} alt="" className='mr-2'
-                            onClick={() => {
-                                likePost()
-                            }} />
-                    }
-                    <img src={comment} alt="" className='mr-2' />
-                    <img src={share} alt="" className='mr-2' />
-                </div>
-                <div>
-                    {bookmark ?
-                        <img src={bookmarked} alt="" className='h-6' style={{ width: "24px", height: "22px" }} onClick={() => handelBookmarkNo()} /> :
-                        <img src={bookmarkDefault} alt="" style={{ height: "22px" }} onClick={() => handelBookmarkYes()} />
-                    }
-                </div>
+                {feat ?
+                    <div className="flex">
+                        {liked ?
+                            <img src={heartLiked} alt="" className='mr-2 h-6'
+                                onClick={() => {
+                                    unlikePost()
+                                }} />
+                            :
+                            <img src={heart} alt="" className='mr-2'
+                                onClick={() => {
+                                    likePost()
+                                }} />
+                        }
+                        <img src={comment} alt="" className='mr-2' />
+                        <img src={share} alt="" className='mr-2' />
+                    </div> :
+                    <div className="flex">
+                        {liked ?
+                            <img src={heartLiked} alt="" className='mr-2 h-6' />
+                            :
+                            <img src={heart} alt="" className='mr-2' />
+                        }
+                        <img src={comment} alt="" className='mr-2' />
+                        <img src={share} alt="" className='mr-2' />
+                    </div>}
+                {feat ?
+                    <div>
+                        {bookmark ?
+                            <img src={bookmarked} alt="" className='h-6' style={{ width: "24px", height: "22px" }} onClick={() => handelBookmarkNo()} /> :
+                            <img src={bookmarkDefault} alt="" style={{ height: "22px" }} onClick={() => handelBookmarkYes()} />
+                        }
+                    </div> :
+                    <div>
+                        {bookmark ?
+                            <img src={bookmarked} alt="" className='h-6' style={{ width: "24px", height: "22px" }} /> :
+                            <img src={bookmarkDefault} alt="" style={{ height: "22px" }} />
+                        }
+                    </div>}
             </div>
             <div className='mx-2' style={{ fontSize: "13px" }}>
                 <p className='font-bold'>{likes} Likes</p>
