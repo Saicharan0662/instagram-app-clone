@@ -24,5 +24,4 @@ git push origin <your branch>
 ```
 
 ## TODO
-Bugs -> crashing upon bookmark (explore page)
 Reels implementation 
