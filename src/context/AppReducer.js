@@ -1,5 +1,4 @@
 const AppReducer = (state, action) => {
-    console.log(action.payload)
     switch (action.type) {
         case 'EDIT':
             return {

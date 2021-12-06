@@ -36,9 +36,33 @@ const Profile = () => {
                 <Menu
                     options={[
                         {
+                            name: "Settings",
+                            path: null,
+                        },
+                        {
+                            name: "Archive",
+                            path: null,
+                        },
+                        {
+                            name: "Your Activity",
+                            path: null,
+                        },
+                        {
+                            name: "QR Code",
+                            path: null,
+                        },
+                        {
                             name: "Saved",
                             path: "/saved",
-                        }
+                        },
+                        {
+                            name: "Close Friends",
+                            path: null,
+                        },
+                        {
+                            name: "Discover People",
+                            path: null,
+                        },
                     ]}
                     setMenu={setMenu}
                 />
