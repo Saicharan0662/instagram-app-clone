@@ -9,6 +9,7 @@ import EditProfile from './pages/EditProfile';
 import ExplorePost from './components/explore-post/ExplorePost';
 import { GlobalProvider } from './context/GlobalState'
 import Saved from './pages/Saved';
+import Reels from './pages/Reels';
 
 function App() {
   return (
@@ -22,11 +23,12 @@ function App() {
           <Route path='/editprofile' component={EditProfile} />
           <Route path='/explorepost' component={ExplorePost} />
           <Route path='/saved' component={Saved} />
+          <Route path='/reels' component={Reels} />
         </Switch>
         <Tabs />
       </div>
       <div className="hidden md:block w-screan text-center font-bold text-xl">
-        Sorry we are only on small screans <br />
+        We are only on small screans <br />
         width should be less than 768px
       </div>
     </GlobalProvider>

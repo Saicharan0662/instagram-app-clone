@@ -17,7 +17,9 @@ const Tabs = () => {
             <Link to='/explore'>
                 <img src={search} alt="" className='h-6' />
             </Link>
-            <img src={reels} alt="" className='h-6' />
+            <Link to='reels'>
+                <img src={reels} alt="" className='h-6' />
+            </Link>
             <Link to='/activity'>
                 <img src={heart} alt="" className='h-6' />
             </Link>

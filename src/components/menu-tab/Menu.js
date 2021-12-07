@@ -12,9 +12,10 @@ const Menu = ({ options, setMenu }) => {
             >
                 <span ></span>
             </div>
-            {options.map(option => {
+            {options.map((option, i) => {
                 return (
                     <div
+                        key={i}
                         className={option.path ? 'py-2 px-2 font-semibold' : 'py-2 px-2 font-normal'}
                         style={{ fontSize: "14px" }}
                         onClick={() => history.push(option.path)}

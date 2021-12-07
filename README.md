@@ -24,4 +24,4 @@ git push origin <your branch>
 ```
 
 ## TODO
-Reels implementation 
+Improving reels section
